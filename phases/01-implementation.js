@@ -133,25 +133,4 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
   }
 }
 
-let hashTable = new HashTable(4);
-hashTable.insert("key1", "value1")
-hashTable.insert("key2", "value2")
-hashTable.insert("key3", "value3")
-hashTable.insert("key5", "value5")
-hashTable.insert("key9", "value9")
-hashTable.insert("key10", "value10")
-console.log("before delete", hashTable.data)
-console.log(hashTable.delete("key2"))
-console.log(hashTable.delete("key10"))
-console.log(hashTable.delete("key10"))
-
-// // console.log(hashTable.data)
-// hashTable.delete("key9")
-// // console.log(hashTable.data)
-// hashTable.delete("key10")
-// console.log("after delete 2, 9, 10", hashTable.data);
-// console.log(hashTable.delete("key2"))
-// console.log("after delete 2 again", hashTable.data);
-// console.log(hashTable.delete("key10"))
-
 module.exports = HashTable;

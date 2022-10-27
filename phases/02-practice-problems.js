@@ -88,20 +88,26 @@ function wordPattern(pattern, strings) {
   let patternArray = Array.from(patternSet)
   console.log(patternArray)
   let stringSet = new Set(strings)
+  let stringArray = Array.from(stringSet);
+  console.log(stringArray);
   let stringObj = {};
-  for (let el in stringSet) {
-    stringObj[el] = true;
+  for (let i = 0; i < patternArray.length; i++) {
+    stringObj[stringArray[i]] = patternArray[i];
   }
-
-  for (let el in stringObj) {
-    stringObj[el]
+  console.log(stringObj);
+  // console.log(patternSet)
+  // console.log(stringSet)
+  for (let i = 0; i < strings.length; i++) {
+    if (strings[i] in stringObj) {
+      strings[i] = stringObj[strings[i]];
+    }
   }
-
-  console.log(patternSet)
-  console.log(stringSet)
-  for (let string of strings) {
-    // if (string === )
+  let a = pattern.split('');
+  let b = strings;
+  for (var i = 0; i < a.length; ++i) {
+    if (a[i] !== b[i]) return false;
   }
+  return true;
 }
 
 
