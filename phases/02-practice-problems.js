@@ -1,5 +1,21 @@
 function anagrams(str1, str2) {
-  // Your code here
+  let tracker = {};
+  for (let char of str1) {
+    if (char in tracker) {
+      tracker[char] ++;
+    } else {
+      tracker[char] = 1;
+    }
+  }
+  let tracker2 = {};
+  for (let char of str2) {
+    if (char in tracker2) {
+      tracker2[char] ++;
+    } else {
+      tracker2[char] = 1;
+    }
+  }
+  return tracker + tracker2;
 }
 
 
