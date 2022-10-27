@@ -192,9 +192,12 @@ describe ('Phase 1 - Hash table implementation', function () {
 
     expect(hashTable.count).to.equal(6);
 
+    console.log(hashTable.capacity)
     // delete key value pairs
     hashTable.delete("key2")
+    console.log(hashTable.data)
     hashTable.delete("key9")
+    console.log(hashTable.data)
     hashTable.delete("key10")
 
     // check for values

@@ -15,7 +15,20 @@ function anagrams(str1, str2) {
       tracker2[char] = 1;
     }
   }
-  return tracker + tracker2;
+
+  let str1Keys = Object.keys(tracker)
+  for (let i = 0; i < str1Keys.length; i++) {
+    let currKey = str1Keys[i];
+
+    if (tracker[currKey] !== tracker2[currKey]) return false;
+  }
+
+  return true;
+
+  // let a = str1.split("").sort().join("");
+  // let b = str2.split("").sort().join("");
+  // return a === b;
+
 }
 
 
