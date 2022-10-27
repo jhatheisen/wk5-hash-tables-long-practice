@@ -29,7 +29,7 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
     // Get index after hashing
     return this.hash(key) % this.capacity;
   }
-  // hash mod changes so index changes
+  // hash mod changes so index changes,
 
 
   insert(key, value) {
@@ -63,7 +63,6 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
     // return und
     let i = this.hashMod(key);
     let curr = this.data[i];
-    console.log(curr.key);
     if (curr.key === key) return curr.value;
 
     while (curr.next) {
@@ -74,34 +73,32 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
     return undefined;
   }
 
-
+// call insert into nexts, inside for loop
   resize() {
-    // make a new array *2 size
-    // for loop through old array,
-    // for each index, copy the old array, value, to the new one
-    // make new array, old one
-    // *2 capacity
 
-    let newArr = new Array(this.capacity * 2).fill(null);
-    for (let i = this.capacity*2; i < this.data.length * 2; i++) {
-      newArr[i] = this.data[i];
-    }
-    this.data = newArr;
+    let oldArray = this.data;
     this.capacity *= 2;
-  }
+    let newArray = new Array(this.capacity).fill(null);
+    this.count = 0;
+    this.data = newArray;
 
+    for (let i = 0; i < oldArray.length; i++){
+      let curr = oldArray[i];
+      if (curr === null) {
+        continue;
+      } else {
+        this.insert(curr.key, curr.value);
+        while(curr.next) {
+          curr = curr.next;
+          this.insert(curr.key, curr.value);
+        }
+      }
+    }
+  }
 
   delete(key) {
     // Your code here
   }
 }
-
-let hashTable = new HashTable(2);
-
-hashTable.insert("key1", "value1");
-    hashTable.insert("key2", "value2");
-    hashTable.insert("key3", "value3");
-    hashTable.resize();
-    console.log(hashTable.read('key1')); // value1
 
 module.exports = HashTable;

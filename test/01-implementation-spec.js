@@ -141,6 +141,7 @@ describe ('Phase 1 - Hash table implementation', function () {
 
     expect(hashTable.read("key1")).to.equal("value1");
     expect(hashTable.read("key2")).to.equal("value2");
+
     expect(hashTable.read("key3")).to.equal("value3");
   });
 
