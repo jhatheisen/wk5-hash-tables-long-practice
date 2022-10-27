@@ -33,22 +33,75 @@ function anagrams(str1, str2) {
 
 
 function commonElements(arr1, arr2) {
-  // Your code here
+  let combined = arr1.concat(arr2);
+  let tracker = {};
+  for (let char of combined) {
+    if (char in tracker) {
+      tracker[char] ++;
+    } else {
+      tracker[char] = 1;
+    }
+  }
+
+  let common = [];
+  for (let key in tracker) {
+    if (tracker[key] > 1) {
+      common.push(Number(key));
+    }
+  }
+
+  return common;
+
 }
 
 
 function duplicate(arr) {
-  // Your code here
+  let tracker = {};
+  for (let char of arr) {
+    if (char in tracker) {
+      return char;
+    } else {
+      tracker[char] = 1;
+    }
+  }
 }
 
 
 function twoSum(nums, target) {
-  // Your code here
+  let numsObject = {};
+
+  for (let num of nums) {
+    let checkNum = target - num;
+    if (checkNum in numsObject) {
+      return true;
+    } else {
+      numsObject[num] = true;
+    }
+  }
+
+  return false;
 }
 
 
 function wordPattern(pattern, strings) {
-  // Your code here
+  let patternSet = new Set(pattern.split(""));
+  let patternArray = Array.from(patternSet)
+  console.log(patternArray)
+  let stringSet = new Set(strings)
+  let stringObj = {};
+  for (let el in stringSet) {
+    stringObj[el] = true;
+  }
+
+  for (let el in stringObj) {
+    stringObj[el]
+  }
+
+  console.log(patternSet)
+  console.log(stringSet)
+  for (let string of strings) {
+    // if (string === )
+  }
 }
 
 
