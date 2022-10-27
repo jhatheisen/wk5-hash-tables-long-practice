@@ -91,6 +91,7 @@ function wordPattern(pattern, strings) {
   let stringArray = Array.from(stringSet);
   console.log(stringArray);
   let stringObj = {};
+  if (stringArray.length !== patternArray.length) return false;
   for (let i = 0; i < patternArray.length; i++) {
     stringObj[stringArray[i]] = patternArray[i];
   }
