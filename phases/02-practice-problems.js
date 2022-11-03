@@ -118,5 +118,6 @@ function wordPattern(pattern, strings) {
   return true;
 }
 
+console.log(parseInt('C9', 16).toString(2));
 
 module.exports = [anagrams, commonElements, duplicate, twoSum, wordPattern];
